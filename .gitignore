@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+*.egg-info/
+.DS_Store
+.pytest_cache/
+dist/
+build/
+
+# Donnees brutes NASA C-MAPSS (telechargeables via scripts/download_data.py)
+data/raw/
+data/interim/
+data/processed/
+
+# Modeles entraines (reproductibles via `make pipeline`)
+models/
+*.pt
+*.pkl

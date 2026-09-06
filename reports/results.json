@@ -1,0 +1,75 @@
+{
+  "supervised": {
+    "regression": {
+      "linear_regression": {
+        "rmse": 22.258569498870028,
+        "mae": 17.867289872100535,
+        "r2": 0.7130970884332973
+      },
+      "random_forest": {
+        "rmse": 18.74385573298959,
+        "mae": 13.404673108174073,
+        "r2": 0.7965497060466367
+      }
+    },
+    "classification": {
+      "logistic_regression": {
+        "precision": 0.8076923076923077,
+        "recall": 0.84,
+        "f1": 0.8235294117647058,
+        "accuracy": 0.91
+      },
+      "random_forest_classifier": {
+        "precision": 0.9523809523809523,
+        "recall": 0.8,
+        "f1": 0.8695652173913043,
+        "accuracy": 0.94
+      }
+    },
+    "classification_confusion_matrix": {
+      "predit_0": {
+        "vrai_0": 74,
+        "vrai_1": 5
+      },
+      "predit_1": {
+        "vrai_0": 1,
+        "vrai_1": 20
+      }
+    }
+  },
+  "unsupervised": {
+    "isolation_forest": {
+      "auc": 0.8922785153075047,
+      "spearman_corr_with_rul": -0.2765110300206391
+    },
+    "pca_reconstruction": {
+      "auc": 0.5112142147566152,
+      "spearman_corr_with_rul": -0.015586340701241411,
+      "explained_variance_ratio_cumsum": 0.9111044531992659
+    },
+    "n_fit_units": 80,
+    "n_eval_units": 20
+  },
+  "deep_learning": {
+    "sequence_length": 30,
+    "n_training_sequences": 17731,
+    "epochs": 15,
+    "training_time_seconds": 35.5,
+    "final_train_loss": 60.65038443900443,
+    "final_val_loss": 70.02360793522426,
+    "test_metrics": {
+      "rmse": 18.98340162756706,
+      "mae": 14.111512184143066,
+      "r2": 0.7913162708282471
+    }
+  },
+  "dataset_info": {
+    "n_train_units": 100,
+    "n_test_units": 100,
+    "n_train_rows": 20631,
+    "n_test_rows": 13096,
+    "n_features": 42,
+    "rul_cap": 125,
+    "maintenance_soon_threshold": 30
+  }
+}
