@@ -27,9 +27,9 @@ La **maintenance predictive** cherche un compromis : estimer, a partir de
 mesures de capteurs, la duree de vie residuelle (**RUL — Remaining Useful
 Life**) d'un composant, afin de planifier une intervention avant la panne
 mais sans gaspiller de duree de vie utile. C'est un probleme central pour
-des acteurs comme Thales, ou la fiabilite et la disponibilite des systemes
-(aeronautique, defense, systemes de transport) sont des exigences de
-premier ordre.
+des acteurs industriels dans l'aeronautique, la defense ou les systemes de
+transport, ou la fiabilite et la disponibilite des systemes sont des
+exigences de premier ordre.
 
 Ce projet applique trois familles de methodes de machine learning a ce
 probleme sur un jeu de donnees public de simulation de degradation de

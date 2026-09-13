@@ -1,149 +1,147 @@
+🇫🇷 [Version française](README.fr.md)
+
 # ml-critical-systems-lab
 
-Projet de **data science appliquee a la maintenance predictive de systemes
-critiques**, base sur le jeu de donnees public **NASA C-MAPSS** (Turbofan
-Engine Degradation Simulation). Trois familles de modeles de machine
-learning sont entrainees et evaluees avec de vraies metriques :
+Applied **data science project for predictive maintenance of critical
+systems**, based on the public **NASA C-MAPSS** dataset (Turbofan Engine
+Degradation Simulation). Three families of machine learning models are
+trained and evaluated with real metrics:
 
-- **Machine learning supervise** (scikit-learn) : regression du RUL
-  (Remaining Useful Life) et classification binaire "maintenance necessaire
-  bientot"
-- **Apprentissage non supervise / detection d'anomalies** (scikit-learn) :
-  Isolation Forest et erreur de reconstruction PCA sur les lectures capteurs
-- **Deep learning + series temporelles** (PyTorch, CPU) : un LSTM leger
-  operant sur des fenetres glissantes de mesures capteurs
-- **Visualisation de donnees** (matplotlib / seaborn)
-- **Rapport technique** rigoureux et honnete (`reports/technical_report.md`)
-- **Tests automatises** (pytest)
+- **Supervised machine learning** (scikit-learn): RUL (Remaining Useful
+  Life) regression and binary classification for "maintenance needed
+  soon"
+- **Unsupervised learning / anomaly detection** (scikit-learn): Isolation
+  Forest and PCA reconstruction error on sensor readings
+- **Deep learning + time series** (PyTorch, CPU): a lightweight LSTM
+  operating on sliding windows of sensor measurements
+- **Data visualization** (matplotlib / seaborn)
+- **Rigorous, honest technical report** (`reports/technical_report.md`)
+- **Automated tests** (pytest)
 
-## Pourquoi ce projet
+## Why this project
 
-Ce projet a ete construit pour combler, de facon **honnete et concrete**,
-l'ecart entre un profil d'ingenieur logiciel (Flutter, Java, backend,
-Docker/Kubernetes) et les exigences de data science classique d'un poste
-vise chez Thales : **"Applied AI Research Scientist – Data Scientist"**
-(reference **R0335173**, Quebec). Ce poste demande explicitement :
+This project was built to close, in an **honest and concrete** way, the
+gap between a software engineering profile (Flutter, Java, backend,
+Docker/Kubernetes) and the classic data science skill set expected for
+**Data Scientist / AI Research Scientist**-type roles. Roles like these
+typically require:
 
-- une maitrise de Python pour le traitement/nettoyage/analyse de donnees ;
-- une comprehension solide du ML supervise, non supervise, du deep
-  learning, de la detection d'anomalies et de l'analyse de series
-  temporelles ;
-- une experience d'entrainement/evaluation de modeles IA/ML ;
-- une experience avec des outils de visualisation de donnees ;
-- une base solide en mathematiques, statistiques et probabilites ;
-- une capacite demontree a mener un projet de recherche appliquee de bout
-  en bout, avec peu d'encadrement ;
-- une capacite a communiquer un travail scientifique via des **rapports
-  techniques**.
+- strong Python skills for data processing/cleaning/analysis;
+- a solid understanding of supervised and unsupervised ML, deep learning,
+  anomaly detection, and time series analysis;
+- experience training and evaluating AI/ML models;
+- experience with data visualization tools;
+- a solid foundation in mathematics, statistics, and probability;
+- a demonstrated ability to run an applied research project end-to-end
+  with limited supervision;
+- the ability to communicate scientific work through **technical
+  reports**.
 
-Plutot que de pretendre a une experience ou a des publications
-inexistantes, ce projet construit un vrai petit projet de recherche
-appliquee — donnees reelles telechargees, code qui tourne, metriques
-reellement calculees (jamais inventees) — de sorte que chaque ligne de CV
-qui en decoule soit strictement vraie et verifiable.
+Rather than claiming nonexistent experience or publications, this project
+builds a real, small applied research project — real downloaded data,
+code that actually runs, metrics that are genuinely computed (never made
+up) — so that every line of the resulting résumé is strictly true and
+verifiable.
 
-Un projet sœur, [`genai-mcp-assistant`](../genai-mcp-assistant), comble une
-autre partie de l'ecart (RAG, LLM, agents LangGraph, serveur MCP,
-Docker/Kubernetes/Helm) pour des postes GenAI. Ce projet-ci est **independant** et se
-concentre exclusivement sur le ML classique, les statistiques, la
-visualisation et la redaction d'un rapport technique — il ne reintroduit
-volontairement pas de conteneurisation/orchestration (deja couverte par le
-projet sœur).
+A sister project, [`genai-mcp-assistant`](../genai-mcp-assistant), covers
+another part of the gap (RAG, LLMs, LangGraph agents, MCP server,
+Docker/Kubernetes/Helm) for GenAI-oriented roles. This project is
+**independent** and focuses exclusively on classic ML, statistics,
+visualization, and technical report writing — it deliberately does not
+reintroduce containerization/orchestration (already covered by the sister
+project).
 
-## Stack technique
+## Tech stack
 
-| Domaine | Outils |
+| Area | Tools |
 |---|---|
-| Langage | Python 3.10+ |
-| Traitement de donnees | pandas, numpy |
-| ML supervise / non supervise | scikit-learn (RandomForest, LogisticRegression, LinearRegression, IsolationForest, PCA) |
+| Language | Python 3.10+ |
+| Data processing | pandas, numpy |
+| Supervised / unsupervised ML | scikit-learn (RandomForest, LogisticRegression, LinearRegression, IsolationForest, PCA) |
 | Deep learning | PyTorch (CPU) — LSTM |
-| Visualisation | matplotlib, seaborn |
+| Visualization | matplotlib, seaborn |
 | Tests | pytest |
 | Packaging | setuptools (src-layout), `pyproject.toml` |
 
-## Demarrage rapide
+## Quickstart
 
 ```bash
-make venv install     # cree le venv (.venv/) et installe les dependances + le package en mode editable
-make download-data    # telecharge et extrait le jeu de donnees NASA C-MAPSS (sous-ensemble FD001) dans data/raw/
-make pipeline         # execute le pipeline complet : pretraitement -> 3 familles de modeles -> figures -> reports/results.json
-make test             # execute les tests automatises (pytest)
+make venv install     # creates the venv (.venv/) and installs dependencies + the package in editable mode
+make download-data    # downloads and extracts the NASA C-MAPSS dataset (FD001 subset) into data/raw/
+make pipeline         # runs the full pipeline: preprocessing -> 3 model families -> figures -> reports/results.json
+make test             # runs the automated tests (pytest)
 ```
 
-Le pipeline complet (`make pipeline`) prend environ 1 a 2 minutes sur un
-ordinateur portable standard (CPU uniquement, pas de GPU requis), dont
-~35 secondes pour l'entrainement du LSTM.
+The full pipeline (`make pipeline`) takes about 1 to 2 minutes on a
+standard laptop (CPU only, no GPU required), including ~35 seconds for
+LSTM training.
 
-## Structure du projet
+## Project structure
 
 ```
 ml-critical-systems-lab/
 ├── data/
-│   └── raw/                        # donnees NASA C-MAPSS brutes (non versionnees, cf. .gitignore)
+│   └── raw/                        # raw NASA C-MAPSS data (not versioned, see .gitignore)
 ├── scripts/
-│   └── download_data.py            # telecharge + extrait le zip NASA (FD001)
+│   └── download_data.py            # downloads + extracts the NASA zip (FD001)
 ├── src/ml_critical_systems_lab/
-│   ├── config.py                    # chemins et constantes centralisees (cap RUL, seuils, capteurs retenus)
-│   ├── data.py                      # chargement train/test/RUL en DataFrame pandas
-│   ├── features.py                  # calcul du RUL, plafonnement, stats glissantes, normalisation
-│   ├── metrics.py                    # RMSE/MAE/R2, precision/recall/F1, AUC anomalies, correlation Spearman
-│   ├── supervised.py                 # regression RUL (LinearRegression, RandomForestRegressor) + classification (LogisticRegression, RandomForestClassifier)
-│   ├── unsupervised.py               # detection d'anomalies (IsolationForest, PCA)
-│   ├── deep_learning.py              # LSTM PyTorch + construction de sequences temporelles
-│   ├── visualize.py                   # generation des figures (matplotlib/seaborn)
-│   └── pipeline.py                    # orchestrateur de bout en bout
-├── tests/                            # tests pytest (donnees synthetiques, deterministes)
+│   ├── config.py                    # centralized paths and constants (RUL cap, thresholds, selected sensors)
+│   ├── data.py                      # loads train/test/RUL into pandas DataFrames
+│   ├── features.py                  # RUL computation, capping, rolling stats, normalization
+│   ├── metrics.py                    # RMSE/MAE/R2, precision/recall/F1, anomaly AUC, Spearman correlation
+│   ├── supervised.py                 # RUL regression (LinearRegression, RandomForestRegressor) + classification (LogisticRegression, RandomForestClassifier)
+│   ├── unsupervised.py               # anomaly detection (IsolationForest, PCA)
+│   ├── deep_learning.py              # PyTorch LSTM + time series sequence construction
+│   ├── visualize.py                   # figure generation (matplotlib/seaborn)
+│   └── pipeline.py                    # end-to-end orchestrator
+├── tests/                            # pytest tests (synthetic, deterministic data)
 ├── reports/
-│   ├── technical_report.md           # rapport technique complet (methodologie + resultats reels)
-│   ├── results.json                   # metriques exportees automatiquement par le pipeline
-│   └── figures/                       # figures generees (PNG)
+│   ├── technical_report.md           # full technical report (methodology + real results)
+│   ├── results.json                   # metrics automatically exported by the pipeline
+│   └── figures/                       # generated figures (PNG)
 ├── pyproject.toml
 ├── requirements.txt
 ├── Makefile
 └── .gitignore
 ```
 
-## Resultats cles (extraits du rapport technique)
+## Key results (excerpted from the technical report)
 
-Toutes les valeurs ci-dessous sont produites par une execution reelle du
-pipeline sur le sous-ensemble **FD001** de C-MAPSS (100 moteurs
-d'entrainement, 100 moteurs de test) — voir
-[`reports/technical_report.md`](reports/technical_report.md) pour le detail
-complet et les figures.
+All values below come from an actual run of the pipeline on the
+**FD001** subset of C-MAPSS (100 training engines, 100 test engines) —
+see [`reports/technical_report.md`](reports/technical_report.md) for full
+details and figures.
 
-| Famille | Meilleur modele | Metrique | Valeur |
+| Family | Best model | Metric | Value |
 |---|---|---|---|
-| Supervise (regression RUL) | Random Forest Regressor | RMSE | 18.74 cycles |
-| Supervise (classification "maintenance bientot") | Random Forest Classifier | F1 | 0.870 |
-| Non supervise (detection d'anomalies) | Isolation Forest | AUC | 0.892 |
-| Deep learning (LSTM, series temporelles) | LSTM (1 couche, CPU, 15 epochs) | RMSE | 18.98 cycles |
+| Supervised (RUL regression) | Random Forest Regressor | RMSE | 18.74 cycles |
+| Supervised ("maintenance soon" classification) | Random Forest Classifier | F1 | 0.870 |
+| Unsupervised (anomaly detection) | Isolation Forest | AUC | 0.892 |
+| Deep learning (LSTM, time series) | LSTM (1 layer, CPU, 15 epochs) | RMSE | 18.98 cycles |
 
-## Ce que ce projet demontre (et ce qu'il ne demontre pas)
+## What this project demonstrates (and what it does not)
 
-**Demontre** : traitement et nettoyage de donnees en Python (pandas),
-feature engineering sur series temporelles multivariees, machine learning
-supervise (regression et classification, scikit-learn), apprentissage non
-supervise et detection d'anomalies (Isolation Forest, PCA), deep learning
-sur CPU avec PyTorch (LSTM), analyse de series temporelles, visualisation de
-donnees (matplotlib/seaborn), calcul et interpretation honnete de vraies
-metriques (RMSE, precision/recall/F1, AUC, correlation), redaction d'un
-rapport technique structure, tests automatises, developpement realise sous
-Linux/macOS en ligne de commande.
+**Demonstrates**: data processing and cleaning in Python (pandas),
+feature engineering on multivariate time series, supervised machine
+learning (regression and classification, scikit-learn), unsupervised
+learning and anomaly detection (Isolation Forest, PCA), CPU-based deep
+learning with PyTorch (LSTM), time series analysis, data visualization
+(matplotlib/seaborn), honest computation and interpretation of real
+metrics (RMSE, precision/recall/F1, AUC, correlation), writing a
+structured technical report, automated testing, development carried out
+on Linux/macOS from the command line.
 
-**Ne demontre PAS** (a ne pas sur-vendre sur un CV) : traitement Big
-Data/Spark (le jeu de donnees tient en memoire, ~12 Mo), deploiement en
-production (pas d'API de service, pas de monitoring de derive), publication
-scientifique evaluee par des pairs (ce rapport est un document technique
-interne, pas un article revise), recherche d'hyperparametres exhaustive
-(valeurs raisonnables issues de la litterature, pas de grid search
-systematique a grande echelle), traitement de donnees de capteurs reelles
-(C-MAPSS est une simulation NASA).
+**Does NOT demonstrate** (should not be oversold on a résumé): Big
+Data/Spark-scale processing (the dataset fits in memory, ~12 MB),
+production deployment (no serving API, no drift monitoring), peer-reviewed
+scientific publication (this report is an internal technical document,
+not a reviewed paper), exhaustive hyperparameter search (reasonable
+values from the literature, no large-scale systematic grid search),
+processing of real-world sensor data (C-MAPSS is a NASA simulation).
 
-## Limites connues / pistes d'amelioration
+## Known limitations / possible improvements
 
-Voir la section 6 de [`reports/technical_report.md`](reports/technical_report.md)
-pour le detail complet (dataset simule, sous-ensemble le plus simple choisi
-volontairement, modele de deep learning volontairement reduit, PCA peu
-performante sur ce jeu de donnees, pas de recherche d'hyperparametres
-exhaustive, pas de deploiement).
+See section 6 of [`reports/technical_report.md`](reports/technical_report.md)
+for the full detail (simulated dataset, deliberately chosen simplest
+subset, deliberately reduced deep learning model, PCA underperforming on
+this dataset, no exhaustive hyperparameter search, no deployment).
