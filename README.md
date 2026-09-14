@@ -20,36 +20,28 @@ trained and evaluated with real metrics:
 
 ## Why this project
 
-This project was built to close, in an **honest and concrete** way, the
-gap between a software engineering profile (Flutter, Java, backend,
-Docker/Kubernetes) and the classic data science skill set expected for
-**Data Scientist / AI Research Scientist**-type roles. Roles like these
-typically require:
-
-- strong Python skills for data processing/cleaning/analysis;
-- a solid understanding of supervised and unsupervised ML, deep learning,
-  anomaly detection, and time series analysis;
-- experience training and evaluating AI/ML models;
-- experience with data visualization tools;
-- a solid foundation in mathematics, statistics, and probability;
-- a demonstrated ability to run an applied research project end-to-end
-  with limited supervision;
-- the ability to communicate scientific work through **technical
-  reports**.
+This project comes from wanting to actually practice, hands-on and end to
+end, the classic data science toolbox: data cleaning and processing,
+supervised and unsupervised machine learning, deep learning, anomaly
+detection, time series analysis, and communicating results through a
+proper technical report — rather than just reading about these
+techniques.
 
 Rather than claiming nonexistent experience or publications, this project
 builds a real, small applied research project — real downloaded data,
 code that actually runs, metrics that are genuinely computed (never made
-up) — so that every line of the resulting résumé is strictly true and
-verifiable.
+up) — so that every result is strictly true and verifiable.
 
-A sister project, [`genai-mcp-assistant`](../genai-mcp-assistant), covers
-another part of the gap (RAG, LLMs, LangGraph agents, MCP server,
-Docker/Kubernetes/Helm) for GenAI-oriented roles. This project is
+It complements the two other projects in this portfolio by exploring a
+different technical angle — classic machine learning, statistics, and
+scientific reporting — where
+[`genai-mcp-assistant`](../genai-mcp-assistant) focuses on RAG, agents, and
+generative AI, and [`engine-health-platform`](../engine-health-platform)
+on full-stack development and real deployment. This project is
 **independent** and focuses exclusively on classic ML, statistics,
 visualization, and technical report writing — it deliberately does not
-reintroduce containerization/orchestration (already covered by the sister
-project).
+reintroduce containerization/orchestration (already covered by the other
+two).
 
 ## Tech stack
 

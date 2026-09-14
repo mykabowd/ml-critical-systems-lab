@@ -20,37 +20,30 @@ learning sont entraînées et évaluées avec de vraies métriques :
 
 ## Pourquoi ce projet
 
-Ce projet a été construit pour combler, de façon **honnête et concrète**,
-l'écart entre un profil d'ingénieur logiciel (Flutter, Java, backend,
-Docker/Kubernetes) et les compétences classiques attendues pour des rôles
-de type **Data Scientist / AI Research Scientist**. Ce type de poste
-demande typiquement :
-
-- une maîtrise de Python pour le traitement/nettoyage/analyse de données ;
-- une compréhension solide du ML supervisé, non supervisé, du deep
-  learning, de la détection d'anomalies et de l'analyse de séries
-  temporelles ;
-- une expérience d'entraînement/évaluation de modèles IA/ML ;
-- une expérience avec des outils de visualisation de données ;
-- une base solide en mathématiques, statistiques et probabilités ;
-- une capacité démontrée à mener un projet de recherche appliquée de bout
-  en bout, avec peu d'encadrement ;
-- une capacité à communiquer un travail scientifique via des **rapports
-  techniques**.
+Ce projet vient de l'envie de pratiquer concrètement, de bout en bout, la
+boîte à outils classique de la data science : traitement et nettoyage de
+données, machine learning supervisé et non supervisé, deep learning,
+détection d'anomalies, analyse de séries temporelles, et communication des
+résultats via un vrai rapport technique — plutôt que de simplement lire
+sur ces techniques.
 
 Plutôt que de prétendre à une expérience ou à des publications
 inexistantes, ce projet construit un vrai petit projet de recherche
 appliquée — données réelles téléchargées, code qui tourne, métriques
-réellement calculées (jamais inventées) — de sorte que chaque ligne de CV
-qui en découle soit strictement vraie et vérifiable.
+réellement calculées (jamais inventées) — de sorte que chaque résultat
+soit strictement vrai et vérifiable.
 
-Un projet sœur, [`genai-mcp-assistant`](../genai-mcp-assistant), comble une
-autre partie de l'écart (RAG, LLM, agents LangGraph, serveur MCP,
-Docker/Kubernetes/Helm) pour des postes GenAI. Ce projet-ci est
-**indépendant** et se concentre exclusivement sur le ML classique, les
-statistiques, la visualisation et la rédaction d'un rapport technique — il
-ne réintroduit volontairement pas de conteneurisation/orchestration (déjà
-couverte par le projet sœur).
+Il vient compléter les deux autres projets de ce portfolio en explorant un
+angle technique différent — le machine learning classique, les
+statistiques et la communication scientifique — là où
+[`genai-mcp-assistant`](../genai-mcp-assistant) se concentre sur le RAG,
+les agents et l'IA générative, et
+[`engine-health-platform`](../engine-health-platform) sur le développement
+full-stack et le déploiement réel. Ce projet-ci est **indépendant** et se
+concentre exclusivement sur le ML classique, les statistiques, la
+visualisation et la rédaction d'un rapport technique — il ne réintroduit
+volontairement pas de conteneurisation/orchestration (déjà couverte par
+les deux autres).
 
 ## Stack technique
 
